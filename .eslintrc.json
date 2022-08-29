@@ -11,6 +11,7 @@
 	},
 	"plugins": ["react"],
 	"rules": {
+		"object-curly-spacing": ["error", "always"],
 		"indent": ["error", "tab"],
 		"linebreak-style": ["error", "windows"],
 		"quotes": ["error", "double"],
