@@ -1,14 +1,15 @@
 import React from "react"
+import { useState } from "react"
 import "./contact.css"
 import Phone from "../../images/phone.png"
 import Email from "../../images/email.png"
 import Address from "../../images/address.png"
 import { useRef } from "react"
-
-import emailjs from "@emailjs/browser"
+import emailjs from "emailjs-com"
 
 const Contact = () => {
 	const formRef = useRef()
+	const [done, setDone] = useState(false)
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -22,6 +23,7 @@ const Contact = () => {
 			.then(
 				(result) => {
 					console.log(result.text)
+					setDone(true)
 				},
 				(error) => {
 					console.log(error.text)
@@ -78,6 +80,7 @@ const Contact = () => {
 							name="message"
 						/>
 						<button>Submit</button>
+						{done && "Thank you... "}
 					</form>
 				</div>
 			</div>
